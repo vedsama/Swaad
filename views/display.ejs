@@ -1,0 +1,101 @@
+<style>
+  .maincontainer{
+      display: flex;
+      justify-content: center;
+      height: 100vh;
+      background: rgb(255, 166, 0);
+  }
+  .root{
+      width: 1290px;
+      height: auto;
+      background : rgb(229, 226, 226);
+      padding: 10px;
+      margin-top: 20px;
+  }
+
+  .heading{
+    color:#ffa502;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: Oxygen;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+  }
+  .rowgap{
+  margin-top: 40px;}
+</style>
+
+<html>
+<head>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script src="/javascripts/project.js"></script>
+  <link rel="stylesheet" href="/stylesheets/display.css">
+</head>    
+
+<body>
+    <div class="maincontainer">
+        <div class="root">
+            <div class="heading">
+                <span><img src="/images/favicon.png" width="150"></span>
+                </div>
+
+        <hr>
+
+            <table class ="highlight">
+                <thead>
+                  <tr>
+                      <th>Foodlist ID</th>
+                      <th>Price</th>
+                      <th>Offer</th>
+                      <th>Category Name </th>
+                      <th>Food Name</th>
+                      <th>Status</th>
+                      <th>Update</th>
+                  </tr>
+                </thead>
+        
+                <tbody>
+                  <% data.map((item)=>{ %>
+
+                    <tr>
+                      <td><%=item.foodlistid%></td>
+                      <th><%=item.price %>
+            
+                     </th> 
+                     <td><%=item.offerprice%></td>
+                       
+                      <td><%=item.cn %></td>
+                      <td><%=item.fn %></td>
+                      <td><%=item.status %></td>
+                      
+                      <td><a href="/swaad/displaybyid?foodlistid=<%=item.foodlistid %>">Update</a></td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+              </table>
+
+        </div>
+    </div>
+
+
+
+
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    
+
+
+</html>

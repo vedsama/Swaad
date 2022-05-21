@@ -1,0 +1,233 @@
+<style>
+    .maincontainer{
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+        background: #ffa502;
+    }
+    .root{
+        width: 1290px;
+        height: auto;
+        background : rgb(229, 226, 226);
+        padding: 10px;
+        margin-top: 20px;
+    }
+  
+    .heading{
+      color:#ffa502;
+      font-size: 32px;
+      font-weight: bold;
+      font-family: Oxygen;
+      display: flex;
+      justify-content: center;
+      padding: 5px;
+    }
+    .rowgap{
+    margin-top: 40px;}
+  </style>
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swiggy 2.0</title>
+
+
+    <!--MDB Bootstrap-->
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+
+
+
+
+
+    <!--Materialize CSS-->
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+
+
+    <!--Favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/images/favicon/site.webmanifest">
+
+
+
+    <link rel="stylesheet" href="/stylesheets/home.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--JQUERY-->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('select').formSelect();
+        });
+    </script>
+
+
+
+    <script src="/javascripts/project.js"></script>
+
+
+
+
+</head>
+
+<body>
+    <form action="/swaad/editdeleterecord" method="post" enctype = "multipart/form-data">
+        <div class="maincontainer">
+            <div class="root">
+                <div class="heading">
+                    <div class="row">
+                        <div class="col s12">
+
+
+                            <span><img src="/images/favicon.png" width="50"></span> <b>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col s6">
+                        <div class="input-field">
+                            <i class="material-icons prefix">local_dining</i>
+                            <input id="icon_foodlist" name="foodlistid" value="<%=data.foodlistid%>"  readonly ="true" type="text" class="validate">
+                            <label for="icon_foodlist">Foodlist ID</label>
+                        </div>
+
+                    </div>
+                    <div class="col s6">
+                        <div class="input-field">
+                            <select name="categoryid" id="categoryid">
+                                <option value="<%=data.categoryid%>" disabled selected><%=data.cn%></option>
+
+                            </select>
+                            <label>Category</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s6">
+                        <div class="input-field">
+                            <select name="foodid" id="foodid">
+                                <option value="<%=data.foodid%>" disabled selected><%=data.fn%></option>
+
+
+                            </select>
+                            <label>Food</label>
+                        </div>
+
+                    </div>
+                    <div class="col s6"
+                        style="display: flex;flex-direction: row; justify-content:space-around;align-items: center;">
+                        <p>
+
+                            
+                            <label>
+                                <input class="with-gap" name="foodtype_v" type="radio" checked/>
+                                <span>Veg</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input class="with-gap" name="foodtype_nv" type="radio"  />
+                                <span>Nonveg</span>
+                            </label>
+                        </p>
+
+
+                    </div>
+                </div>
+
+                
+
+                <div class="row">
+                    <div class="col s6">
+                        <div class="input-field">
+                            <i class="material-icons prefix">sentiment_satisfied</i>
+                            <input id="icon_price" name="price" value="<%=data.price%>" type="text" class="validate">
+                            <label for="icon_price">Price</label>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col s6">
+                        <div class="input-field">
+                            <i class="material-icons prefix">sentiment_very_satisfied</i>
+                            <input id="icon_offer" name="offer" value="<%=data.offerprice%>" type="text" class="validate">
+                            <label for="icon_offer">Offer price</label>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s6">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>Image</span>
+                                <input type="file" name ="image">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col s6"
+                        style="display: flex;flex-direction: row; justify-content:space-around;align-items: center;">
+                        <label style="font-size:medium">Status</label>
+                        <p>
+                            <label>
+                                <input class="with-gap" name="status_a" type="radio" checked/>
+                                <span>Available</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input class="with-gap" name="status_b" type="radio" />
+                                <span>Not Available</span>
+                            </label>
+                        </p>
+
+
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s6">
+                        <button class="btn waves-effect waves-light" type="submit" value="Edit" name="btn">Edit
+                            <i class="material-icons right">send</i>
+                        </button>
+
+                    </div>
+
+                    <div class="col s6">
+                        <button class="btn waves-effect waves-light" type="reset" value ="Delete" name="btn">Delete
+                            <i class="material-icons right">remove</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</html>

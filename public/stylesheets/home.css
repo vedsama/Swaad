@@ -1,0 +1,24 @@
+
+.maincontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:#ffa502;
+    height: 100vh;
+  }
+
+  .root {
+    width: 1000px;
+    height: auto;
+    background: #FFF;
+    padding: 10px;
+
+  }
+
+  .heading{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
